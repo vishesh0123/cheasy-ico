@@ -23,13 +23,16 @@ const milestones = [
 export default function Roadmap() {
     return (
         <Box sx={{
-            // border: '5px solid orange',
+            bgcolor: '#121212',
             height: '100vh',
-            mt: '10%',
+            mt: '5%',
+            mx: 2,
+            borderRadius: 2,
+            py: 1
         }}>
             <Typography sx={{
                 color: 'orange',
-                mt: 2,
+                mt: 5,
                 fontSize: 50,
                 fontWeight: 'bold',
                 textAlign: 'center',

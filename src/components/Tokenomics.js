@@ -2,10 +2,11 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { PieChart } from '@mui/x-charts/PieChart';
+import { PieChart, PieSeries } from '@mui/x-charts/PieChart';
 import { useDrawingArea } from '@mui/x-charts/hooks';
 import { styled } from '@mui/material/styles';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { orange } from '@mui/material/colors';
 
 const data = [
     { value: 25, label: 'PRESALE' },
@@ -21,147 +22,71 @@ const size = {
     height: 400,
 };
 
-const StyledText = styled('text')(({ theme }) => ({
-    fill: theme.palette.text.primary,
+const StyledText = styled('text')(() => ({
+    fill: orange[500],
     textAnchor: 'middle',
     dominantBaseline: 'central',
     fontSize: 20,
     fontWeight: 'bold',
 }));
 
-function PieCenterLabel({ children }) {
+const PieCenterLabel = ({ children }) => {
     const { width, height, left, top } = useDrawingArea();
     return (
         <StyledText x={left + width / 2} y={top + height / 2}>
             {children}
         </StyledText>
     );
-}
+};
 
-export default function Tokenomics() {
+const Tokenomics = () => {
     return (
         <Box sx={{
-            // border: '5px solid orange',
+            bgcolor: '#121212', // Ensuring background compatibility
+            color: orange[500],
             height: '100vh',
-            mt: '10%',
+            mt: '5%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+            mx: 2,
+            borderRadius: 2,
+            px: 5,
         }}>
-            <Typography sx={{
-                color: 'orange',
-                mt: 2,
-                fontSize: 50,
-                fontWeight: 'bold',
-            }}>
+            <Typography variant="h3" sx={{ mb: 4, fontWeight: 'bold' }}>
                 TOKENOMICS
             </Typography>
-            <Box display='flex'
-                sx={{
-                    width: '100%',
-                    mt: 6,
-                }}>
+            <Box display="flex" sx={{ width: '100%' }}>
                 <Box sx={{
-                    width: '42%',
-                    // border: '2px solid orange',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-around',
+                    justifyContent: 'center',
+                    p: 4,
+                    bgcolor: '#333', // Enhancing visibility
                     borderRadius: '20px',
-                    ml: 5,
                 }}>
-                    <Typography sx={{
-                        color: 'orange',
-                        fontSize: 30,
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                    }}>
+                    <Typography variant="h4" gutterBottom textAlign="center" sx={{ fontWeight: 'bold' }}>
                         TOKEN INFORMATION
                     </Typography>
-
-                    <Box sx={{
-                        ml: 2,
-                    }}>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            color: 'orange',
-                            fontWeight: 'bold',
-
-                        }}>
-                            <FiberManualRecordIcon />&nbsp;
-                            25% OF SUPPLY SOLD IN PRESALE
-                        </Typography>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            color: 'orange',
-                            fontWeight: 'bold',
-
-                        }}>
-                            <FiberManualRecordIcon />&nbsp;
-                            25% ALLOCATED FOR MARKETING
-                        </Typography>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            color: 'orange',
-                            fontWeight: 'bold',
-
-                        }}>
-                            <FiberManualRecordIcon />&nbsp;
-                            25% FOR THE PROJECT TREASURY
-                        </Typography>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            color: 'orange',
-                            fontWeight: 'bold',
-
-                        }}>
-                            <FiberManualRecordIcon />&nbsp;
-                            15% USED FOR STAKING REWARDS
-                        </Typography>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            color: 'orange',
-                            fontWeight: 'bold',
-
-                        }}>
-                            <FiberManualRecordIcon />&nbsp;
-                            10% FOR EXCHANGE LIQUIDITY
-                        </Typography>
-
-                    </Box>
-
-
-                    <Typography sx={{
-                        color: 'orange',
-                        fontSize: 20,
-                        fontWeight: 'bold',
-                        ml: 2,
-                    }} >
+                    {data.map((item) => (
+                        <Box key={item.label} sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
+                            <FiberManualRecordIcon sx={{ color: orange[500], mr: 1 }} />
+                            <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                                {item.value}% {item.label}
+                            </Typography>
+                        </Box>
+                    ))}
+                    <Typography sx={{ mt: 2, fontSize: 16, fontWeight: 'bold' }} >
                         CHEASY TOKEN ADDRESS: <br /> 0x2541A36BE4cD39286ED61a3E6AFC2307602489d6
                     </Typography>
-
                 </Box>
-                <PieChart
-                    series={[{ data, innerRadius: 100 }]} {...size}
-                >
+                <PieChart series={[{ data, innerRadius: 100 }]} {...size} >
                     <PieCenterLabel>100 M SUPPLY</PieCenterLabel>
                 </PieChart>
-
             </Box>
-
-
-
         </Box>
-    )
-}
+    );
+};
+
+export default Tokenomics;
