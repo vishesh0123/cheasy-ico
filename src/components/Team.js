@@ -8,13 +8,19 @@ const teamMembers = [
     {
         name: 'Alice Johnson',
         role: 'Founder & CEO',
-        image: '/cheasy.png',
+        image: '/t1.jpg',
         bio: 'Alice has over 10 years of experience in blockchain technologies and business leadership.',
     },
     {
         name: 'Bob Smith',
         role: 'CTO',
-        image: '/cheasy.png',
+        image: '/t2.jpg',
+        bio: 'Bob is a tech visionary with a deep understanding of blockchain infrastructure and cybersecurity.',
+    },
+    {
+        name: 'Bob Smith',
+        role: 'CTO',
+        image: '/t2.jpg',
         bio: 'Bob is a tech visionary with a deep understanding of blockchain infrastructure and cybersecurity.',
     },
     // Add more team members as needed

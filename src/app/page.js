@@ -12,6 +12,8 @@ import FeaturedIn from "@/components/FeaturedIn";
 import Team from "@/components/Team";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import ICOPhases from "@/components/ICOPhases";
+import Launch from "@/components/Launch";
 
 export default function Home() {
   return (
@@ -19,13 +21,14 @@ export default function Home() {
       <Box>
         <Particle />
         <Header />
-        <LogoBg />
-        <IcoLaunch />
+        {/* <LogoBg /> */}
+
+        <Launch />
         <InfoSection />
         <Roadmap />
         <Tokenomics />
-        <FeaturedIn />
-        <Team />
+        {/* <FeaturedIn />
+        <Team /> */}
         <Faq />
         <Footer />
       </Box>

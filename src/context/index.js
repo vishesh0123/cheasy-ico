@@ -22,8 +22,8 @@ createWeb3Modal({
     enableOnramp: true,
     themeMode: 'dark',
     themeVariables: {
-        '--w3m-accent': '#bb2405',
-        '--w3m-border-radius-master': '0px',
+        '--w3m-accent': '#FFA500',
+        '--w3m-border-radius-master': '2px',
         '--w3m-font-size-master': '10px',
         ' --w3m-font-family': '"Roboto", sans-serif',
         '--w3m-z-index': '3'

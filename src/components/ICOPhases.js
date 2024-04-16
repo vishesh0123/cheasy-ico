@@ -7,16 +7,16 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { orange } from '@mui/material/colors';
+import { orange, green } from '@mui/material/colors';
 import { motion } from 'framer-motion';
+import { styled } from '@mui/material/styles';
 
-const milestones = [
-    { label: 'Token Idea & Conceptualization', date: 'Q1 2023' },
-    { label: 'Smart Contract Development', date: 'Q2 2023' },
-    { label: 'Auditing & Testing', date: 'Q3 2023' },
-    { label: 'Pre-ICO Stage', date: 'Q4 2023' },
-    { label: 'ICO Launch', date: 'Q1 2024' },
-    { label: 'Listing on Exchanges', date: 'Q2 2024' },
+const phases = [
+    { phase: '1', tokens: 60000000, price: 0.05 },
+    { phase: '2', tokens: 60000000, price: 0.08 },
+    { phase: '3', tokens: 60000000, price: 0.11 },
+    { phase: '4', tokens: 60000000, price: 0.15 },
+    { phase: '5', tokens: 60000000, price: 0.20 },
 ];
 
 const itemVariants = {
@@ -31,31 +31,48 @@ const itemVariants = {
     }
 };
 
-export default function Roadmap() {
+const CustomTimeline = styled(Timeline)(({ theme }) => ({
+
+    // Add more custom styles if needed
+}));
+
+const CustomTimelineItem = styled(TimelineItem)({
+    '&::before': {
+        // Override the content property to be an empty string
+        content: 'none',
+        // Remove other styles that you don't need
+        flex: 'none',
+        padding: 0,
+    },
+});
+
+export default function ICOPhases() {
     return (
         <Box sx={{
-            bgcolor: '#121212',
-            height: '130vh',
-            mt: '5%',
+            // bgcolor: '#121212',
+            height: '100%',
+            mt: '1%',
             mx: 2,
             borderRadius: 2,
-            py: 1
+            py: 1,
+            width: '40%',
         }}>
             <Typography sx={{
                 color: orange[500],
-                mt: 5,
-                fontSize: 50,
+                mt: 1,
+                mb: 1,
+                fontSize: 20,
                 fontWeight: 'bold',
                 textAlign: 'center',
             }}>
-                ROADMAP
+                ICO PHASES
             </Typography>
-            <Timeline position="alternate">
-                {milestones.map((milestone, index) => (
-                    <TimelineItem key={index}>
+            <CustomTimeline position="right">
+                {phases.map((phase, index) => (
+                    <CustomTimelineItem key={index}>
                         <TimelineSeparator>
                             <TimelineDot style={{ backgroundColor: orange[500] }} />
-                            {index < milestones.length - 1 && (
+                            {index < phases.length - 1 && (
                                 <TimelineConnector style={{ backgroundColor: orange[200] }} />
                             )}
                         </TimelineSeparator>
@@ -67,24 +84,31 @@ export default function Roadmap() {
                                 variants={itemVariants}
                             >
                                 <Paper elevation={3} sx={{
-                                    p: 2,
-                                    backgroundColor: '#333',
+                                    p: 1,
+                                    mb: 1,
+                                    backgroundColor: index == 0 ? 'green' : '#333',
                                     color: orange[500],
                                     '&:hover': {
                                         backgroundColor: orange[700],
                                         color: '#fff'
-                                    }
+                                    },
+                                    width: index == 0 ? '120%' : '100%',
                                 }}>
                                     <Typography variant="h6" component="h1" sx={{ color: 'inherit' }}>
-                                        {milestone.label}
+                                        {`PHASE ${phase.phase}`}
                                     </Typography>
-                                    <Typography sx={{ color: orange[200] }}>{milestone.date}</Typography>
+                                    {/* <Typography sx={{ color: orange[200] }}>
+                                        Tokens: {phase.tokens.toLocaleString()} CHEASY
+                                    </Typography> */}
+                                    <Typography sx={{ color: orange[200] }}>
+                                        Price: ${phase.price.toFixed(2)} per token
+                                    </Typography>
                                 </Paper>
                             </motion.div>
                         </TimelineContent>
-                    </TimelineItem>
+                    </CustomTimelineItem>
                 ))}
-            </Timeline>
+            </CustomTimeline>
         </Box>
     );
 }
