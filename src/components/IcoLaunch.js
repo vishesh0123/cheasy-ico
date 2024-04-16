@@ -93,7 +93,7 @@ const IcoLaunch = () => {
             mx: 2,
             // border: `3px solid ${orange[500]}`,
             width: 'auto',
-            maxWidth: '600px',
+            maxWidth: '100vh',
             borderRadius: '10px',
             // background: 'linear-gradient(145deg, #121212, #333333)', // Gradient background
         }}>
