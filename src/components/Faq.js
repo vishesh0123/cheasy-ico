@@ -8,19 +8,39 @@ import { motion } from 'framer-motion';
 
 const faqs = [
     {
-        question: 'What is the purpose of the token?',
-        answer: 'The token is designed to facilitate transactions within our platform, providing users with access to exclusive features and incentivizing participation in our ecosystem.',
+        question: 'What is the purpose of the CHEASY token?',
+        answer: 'The CHEASY token is integral to CheasySwap, used for governance, fee discounts, staking rewards, and accessing exclusive features within the platform. It empowers users to participate actively in decision-making and helps optimize the platform\'s operations and security.',
     },
     {
-        question: 'How can I participate in the presale?',
-        answer: 'You can participate in the presale by registering on our website, completing the KYC process, and then following the instructions provided to contribute.',
+        question: 'What are the benefits of participating early in the ICO?',
+        answer: 'Early participants in the ICO benefit from lower token prices and potential bonuses. Investing early can secure you a favorable purchase rate before the price increases in subsequent phases of the ICO.',
     },
     {
-        question: 'What are the benefits of staking?',
-        answer: 'Staking rewards users for locking up their tokens for a specified period, offering them interest payments in return. It helps secure the network and provides users with a steady return on their investment.',
+        question: 'Are there any rewards for long-term holders of CHEASY tokens?',
+        answer: 'Yes, long-term holders are rewarded with bonus distributions, reduced trading fees, and enhanced staking rewards, which are designed to encourage holding and contribute to the stability and security of the platform.',
     },
-    // Add more FAQs as needed
+    {
+        question: 'How will the funds raised in the ICO be used?',
+        answer: 'Funds raised will be allocated to further development of the CheasySwap platform, enhancing security features, expanding our blockchain integrations, marketing, and building reserves to stabilize the token price during market volatility.',
+    },
+    {
+        question: 'What happens if the ICO does not reach its funding goal?',
+        answer: 'If the ICO does not reach its funding goal, the collected funds may be refunded to participants, or we may proceed with a scaled-down version of the project, depending on the amount raised and strategic priorities at that time.',
+    },
+    {
+        question: 'Can I trade CHEASY tokens immediately after purchasing them in the ICO?',
+        answer: 'CHEASY tokens may be subject to a cliff and vesting period as specified in the ICO terms. This is to ensure price stability and a gradual introduction of tokens into circulation. Specific details will be provided during the ICO process.',
+    },
+    {
+        question: 'Are there any geographical restrictions on participating in the ICO?',
+        answer: 'Yes, participation in the ICO may be restricted in certain jurisdictions due to local regulations. Please check our website or consult legal advice in your area to determine if you are eligible to participate.',
+    },
+    {
+        question: 'What is the total supply of CHEASY tokens and how are they distributed?',
+        answer: 'The total supply of CHEASY tokens is capped at 1,000,000,000. Distribution includes allocations for the ICO, liquidity provision, team and founders, community incentives, staking rewards, and a reserve fund. Detailed allocation percentages are available in our whitepaper.',
+    },
 ];
+
 
 
 
@@ -39,11 +59,11 @@ export default function Faq() {
     };
 
     return (
-        <Box sx={{
+        <Box id="faqs" sx={{
             bgcolor: '#121212',
             color: orange[500],
             py: 5,
-            px: 5,
+            px: 10,
             mt: '5%',
             mx: 2,
             borderRadius: 2,
@@ -54,7 +74,7 @@ export default function Faq() {
                 mb: 3,
                 textAlign: 'center',
                 fontWeight: 'bold',
-                textShadow: '0px 0px 20px rgba(255, 165, 0, 0.7)' // Text shadow for 3D effect
+                // textShadow: '0px 0px 20px rgba(255, 165, 0, 0.7)' // Text shadow for 3D effect
             }}>
                 FAQs
             </Typography>
@@ -66,7 +86,7 @@ export default function Faq() {
                         sx={{
                             bgcolor: '#333',
                             color: orange[500],
-                            mb: 1,
+                            mb: 3,
                             '&:before': { display: 'none' },
                             boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.5)' // Internal shadow for depth
                         }}

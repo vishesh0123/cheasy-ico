@@ -77,7 +77,7 @@ const CountdownTimer = ({ targetDate }) => {
 };
 
 const IcoLaunch = () => {
-    const icoStartDate = new Date('2024-07-01T00:00:00');
+    const icoStartDate = new Date('2024-05-01T00:00:00');
     const [openSnackbar, setOpenSnackbar] = useState(false);
 
     const handleCloseSnackbar = (event, reason) => {
@@ -109,11 +109,11 @@ const IcoLaunch = () => {
                     PHASE 1 OF ICO WILL BE LIVE IN
                 </Typography>
                 <CountdownTimer targetDate={icoStartDate} />
-                <Typography variant="subtitle1" sx={{ mt: 2, color: orange[300], fontWeight: 'bold', fontSize: 20 }}>
+                <Typography variant="subtitle1" sx={{ mt: 2, color: orange[500], fontWeight: 'bold', fontSize: 20 }}>
                     1 CHEASY = $0.05
                 </Typography>
-                <Typography variant="h6" sx={{ mt: 3 }}>
-                    60,000,000 Cheasy Tokens Available
+                <Typography variant="h6" sx={{ mt: 3, color: orange[500] }}>
+                    60,000,000 CHEASY ALLOCATED FOR PHASE 1
                 </Typography>
                 <Button variant="contained" sx={{ mt: 5, bgcolor: orange[500], '&:hover': { bgcolor: orange[700] } }}
                     onClick={() => setOpenSnackbar(true)}>
@@ -124,6 +124,7 @@ const IcoLaunch = () => {
                     autoHideDuration={6000}
                     onClose={handleCloseSnackbar}
                     message="Phase 1 is not live yet"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 />
                 <Box sx={{
                     display: 'flex',
@@ -146,8 +147,8 @@ const IcoLaunch = () => {
                     }} />
                 </Box>
 
-                <Typography variant="caption" sx={{ display: 'block', mt: 1, color: orange[500] }}>
-                    Accepted: USDT, USDC, DAI
+                <Typography variant="caption" sx={{ display: 'block', mt: 1, color: orange[500], fontWeight: 'bold' }}>
+                    USDT, USDC, DAI ACCEPTED ( BINANCE SMART CHAIN NETWORK )
                 </Typography>
             </Paper>
         </Box>

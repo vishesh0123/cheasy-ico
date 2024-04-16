@@ -78,7 +78,7 @@ const TokenInfoBox = styled(Box)(({ theme }) => ({
 
 const Tokenomics = () => {
     return (
-        <Box sx={{
+        <Box id="tokenomics" sx={{
             bgcolor: '#121212',
             color: orange[500],
             height: '120vh',
@@ -126,7 +126,7 @@ const Tokenomics = () => {
                     <Typography sx={{ mt: 2, fontSize: 16, fontWeight: 'bold', textAlign: 'center' }} >
                         CHEASY TOKEN ADDRESS:<br />
                         <Typography component="span" sx={{ fontSize: 14, wordBreak: 'break-all', fontWeight: 'bold' }}>
-                            0x2541A36BE4cD39286ED61a3E6AFC2307602489d6
+                            TBD
                         </Typography>
                     </Typography>
                 </Box>

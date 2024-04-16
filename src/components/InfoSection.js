@@ -1,97 +1,113 @@
 'use client';
 import React from 'react';
-import { Box, Typography, Grid, Paper, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Card, CardContent, Typography, Grid, Grow } from '@mui/material';
 import { orange } from '@mui/material/colors';
-import { motion } from 'framer-motion';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import SecurityIcon from '@mui/icons-material/Security';
+import SpeedIcon from '@mui/icons-material/Speed';
+import PeopleIcon from '@mui/icons-material/People';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import LayersIcon from '@mui/icons-material/Layers';
+import PublicIcon from '@mui/icons-material/Public';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
-const InfoSection = () => {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('md'));
+const features = [
+    {
+        icon: <SwapHorizIcon fontSize="large" color="primary" />,
+        title: "Innovative Swapping Mechanism",
+        description: "Ensures minimal slippage and optimizes trade routes across various liquidity pools."
+    },
+    {
+        icon: <SecurityIcon fontSize="large" color="primary" />,
+        title: "Enhanced Security Protocols",
+        description: "Employs regular audits, real-time monitoring, and encryption to protect user data and funds."
+    },
+    {
+        icon: <SpeedIcon fontSize="large" color="primary" />,
+        title: "Low Transaction Costs",
+        description: "Utilizes optimized smart contracts and layer-two solutions to reduce gas costs."
+    },
+    {
+        icon: <PeopleIcon fontSize="large" color="primary" />,
+        title: "User-Friendly Interface",
+        description: "Features a simple, intuitive interface to reduce the complexity for new users."
+    },
+    // Adding new features here
+    {
+        icon: <TrendingUpIcon fontSize="large" color="primary" />,
+        title: "Dynamic Yield Farming",
+        description: "Adjusts farming rewards in real-time based on market conditions to maximize user gains."
+    },
+    {
+        icon: <LayersIcon fontSize="large" color="primary" />,
+        title: "Multi-Layer Security",
+        description: "Implements multiple layers of security protocols to ensure maximum safety of assets."
+    },
+    {
+        icon: <PublicIcon fontSize="large" color="primary" />,
+        title: "Global Access",
+        description: "Provides services across multiple blockchains, facilitating global access and participation."
+    },
+    {
+        icon: <VerifiedUserIcon fontSize="large" color="primary" />,
+        title: "Trustless Environment",
+        description: "Ensures that all transactions are executed without the need for trusted intermediaries."
+    }
+];
 
-    const containerVariants = {
-        hidden: { opacity: 0, x: -100 },
-        visible: { opacity: 1, x: 0, transition: { type: 'spring', delay: 0.3 } },
-    };
-
-    const imageVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: { opacity: 1, scale: 1, transition: { type: 'spring', delay: 0.5 } },
-    };
-
+function FeatureCard({ feature, delay }) {
     return (
-        <Box sx={{
-            bgcolor: '#121212',
-            py: 5,
-            px: 5,
-            display: 'flex',
-            alignItems: 'center',
-            mx: 2,
-            borderRadius: 2,
-            overflow: 'hidden',
+        <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 + delay }}>
+            <Grid item xs={12} sm={6} md={3}>
+                <Card sx={{
+                    minWidth: 275,
+                    minHeight: 200,
+                    bgcolor: 'transparent',
+                    color: 'text.primary',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    m: 1,
+                    border: `1px solid ${orange[500]}` // Adding orange border
+                }}>
+                    <CardContent>
+                        {feature.icon}
+                        <Typography variant="h5" component="div">
+                            {feature.title}
+                        </Typography>
+                        <Typography variant="body2">
+                            {feature.description}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+        </Grow>
+    );
+}
+
+function InfoSection() {
+    return (
+        <Box id="about" sx={{
+            flexGrow: 1,
+            p: 5,
+            m: 2,
             mt: '5%',
+            borderRadius: 2,
+            bgcolor: '#121212',
+            color: orange[500] // Using orange for text color
         }}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={7}>
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <Typography variant="h4" component="h2" sx={{
-                            fontWeight: 'bold',
-                            color: orange[500],
-                            mb: 3,
-                            ml: matches ? 10 : 2,
-                        }}>
-                            CHEASYSWAP PROTOCOL INFO
-                        </Typography>
-                        <Typography variant="body1" paragraph sx={{
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: 16,
-                        }}>
-                            CheasySwap is a next-generation decentralized exchange platform, offering an interoperable swapping mechanism that rivals industry giants like Uniswap and PancakeSwap. Our protocol is designed to provide seamless token exchange across multiple chains, high liquidity options, and minimal slippage.
-                        </Typography>
-                        <Typography variant="body1" paragraph sx={{
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: 16,
-                        }}>
-                            Our platform leverages automated market maker (AMM) technology to ensure that your trading experience is efficient and user-friendly. With CheasySwap, users can earn CHEASY tokens through yield farming, staking, and by participating in our governance model.
-                        </Typography>
-                        <Typography variant="body1" sx={{
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: 16,
-                        }}>
-                            We are committed to providing a secure, transparent, and cost-effective trading environment. Join us on the journey to redefine the DeFi space.
-                        </Typography>
-                    </motion.div>
-                </Grid>
-                <Grid item xs={12} md={5}>
-                    <motion.div
-                        variants={imageVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <Paper elevation={6} sx={{ p: 2, bgcolor: 'transparent' }}>
-                            <Box
-                                component="img"
-                                sx={{
-                                    height: 'auto',
-                                    maxWidth: '100%',
-                                    maxHeight: { xs: 233, md: 350 },
-                                    borderRadius: '10px',
-                                }}
-                                alt="CheasySwap Protocol"
-                                src="/swap.png" // Replace with path to your image
-                            />
-                        </Paper>
-                    </motion.div>
-                </Grid>
+            <Typography variant='h4' fontWeight='bold' gutterBottom textAlign="center" color={orange[500]}>
+                WHY CHEASYSWAP ?
+            </Typography>
+            <Grid container spacing={2} justifyContent="center">
+                {features.map((feature, index) => (
+                    <FeatureCard key={index} feature={feature} delay={index * 500} />
+                ))}
             </Grid>
         </Box>
     );
-};
+}
 
 export default InfoSection;

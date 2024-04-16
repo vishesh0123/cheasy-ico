@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import cheasyImage from '../../public/cheasy.png';
 import HeaderButton from './HeaderButton';
+import Head from 'next/head';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,9 +44,10 @@ export default function Header() {
                         }}>
                         <HeaderButton name="Buy Cheasy" />
                         <HeaderButton name="Roadmap" />
-                        <HeaderButton name="Team" />
-                        <HeaderButton name="Contact Us" />
-                        <HeaderButton name="FAQ" />
+                        <HeaderButton name="Tokenomics" />
+                        <HeaderButton name="About" />
+                        <HeaderButton name="FAQs" />
+                        <HeaderButton name="Docs" />
                     </Box>
                     <Box sx={{
                         display: 'flex',

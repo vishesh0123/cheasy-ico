@@ -33,12 +33,11 @@ const Footer = () => {
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>CheasySwap</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Link href="#" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>About</Link>
-                <Link href="#" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Roadmap</Link>
-                <Link href="#" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Rewards</Link>
-                <Link href="#" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>FAQ</Link>
-                <Link href="#" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Privacy Policy</Link>
-                <Link href="#" sx={{ color: 'white', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Terms & Conditions</Link>
+                <Link href="/#about" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>About</Link>
+                <Link href="/#roadmap" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Roadmap</Link>
+                <Link href="/#faqs" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>FAQ</Link>
+                <Link href="/privacypolicy.docx" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Privacy Policy</Link>
+                <Link href="/terms.docx" sx={{ color: 'white', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Terms & Conditions</Link>
             </Box>
             <Box
                 sx={{
@@ -47,10 +46,8 @@ const Footer = () => {
                     alignItems: 'flex-end',
                 }}
             >
-                <Typography sx={{ mb: 1, color: 'white' }}>4th Floor Woof Street</Typography>
-                <Typography sx={{ mb: 1, color: 'white' }}>Doge Trade Center, Panama</Typography>
-                <Link href="mailto:marketing@yourtoken.io" sx={{ color: 'white', mb: 2, '&:hover': { textDecoration: 'underline' } }}>
-                    marketing@yourtoken.io
+                <Link href="mailto:support@cheasy.finance" sx={{ color: 'white', mb: 2, '&:hover': { textDecoration: 'underline' } }}>
+                    support@cheasy.finance
                 </Link>
                 <Box>
                     <IconButton href="#" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><TwitterIcon /></IconButton>
