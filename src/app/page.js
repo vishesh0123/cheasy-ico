@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import Particle from "@/components/Particles";
 import Box from '@mui/material/Box';
