@@ -9,6 +9,8 @@ import { motion } from 'framer-motion';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Tooltip from '@mui/material/Tooltip';  // Import Tooltip
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const data = [
     { y: 30, name: 'Initial Coin Offering (ICO)', desc: 'The ICO serves as the primary mechanism for distributing CHEASY tokens to the public. Setting aside 30% of the total supply for the ICO allows us to secure initial funding necessary for development and operational costs while engaging a broad investor base.' },
@@ -77,11 +79,13 @@ const TokenInfoBox = styled(Box)(({ theme }) => ({
 }));
 
 const Tokenomics = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <Box id="tokenomics" sx={{
             bgcolor: '#121212',
             color: orange[500],
-            height: '120vh',
+            height: '100%',
             mt: '5%',
             display: 'flex',
             flexDirection: 'column',
@@ -90,11 +94,15 @@ const Tokenomics = () => {
             mx: 2,
             borderRadius: 2,
             px: 5,
+            py: 5,
         }}>
             <Typography variant="h3" sx={{ mb: 4, fontWeight: 'bold' }}>
                 TOKENOMICS
             </Typography>
-            <Box display="flex" justifyContent="space-around" sx={{ width: '100%', flexWrap: 'wrap' }}>
+            <Box display="flex"
+                flexDirection={isMobile ? 'column' : 'row'}
+                justifyContent="space-around"
+                sx={{ width: '100%', flexWrap: 'wrap' }}>
                 <Box sx={{
                     width: '40%',
                     display: 'flex',
@@ -132,7 +140,18 @@ const Tokenomics = () => {
                 </Box>
                 <HighchartsReact
                     highcharts={Highcharts}
-                    options={chartOptions}
+                    options={isMobile ? {
+                        ...chartOptions, chart: {
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 45,
+                                beta: 0
+                            },
+                            backgroundColor: '#121212',
+                            height: 200, // Set fixed height for consistency
+                        },
+                    } : chartOptions}
                 />
             </Box>
         </Box>

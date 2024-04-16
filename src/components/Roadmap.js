@@ -56,7 +56,7 @@ export default function Roadmap() {
             id="roadmap"
             sx={{
                 bgcolor: '#121212',
-                height: '180vh',
+                height: '100%',
                 mt: '5%',
                 mx: 2,
                 borderRadius: 2,

@@ -4,10 +4,14 @@ import { Box, Grid, Link, Typography, IconButton } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { orange } from '@mui/material/colors';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const logoSrc = '/cheasy.png';
 
 const Footer = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <Box
             component="footer"
@@ -17,7 +21,7 @@ const Footer = () => {
                 bgcolor: '#121212',
                 color: orange[500],
                 display: 'flex',
-                flexDirection: 'row',
+                flexDirection: isMobile ? 'column' : 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 mt: '5%'
