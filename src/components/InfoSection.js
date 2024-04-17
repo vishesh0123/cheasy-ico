@@ -101,6 +101,34 @@ function InfoSection() {
             <Typography variant='h4' fontWeight='bold' gutterBottom textAlign="center" color={orange[500]}>
                 WHY CHEASYSWAP ?
             </Typography>
+            <Box sx={{ flexGrow: 1, m: 2 }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={7}>
+                        <Typography>
+                            CheasySwap's mission is to revolutionize the decentralized finance landscape by innovating and simplifying DeFi transactions, making them more accessible, efficient, and secure for all users, regardless of their technical expertise. We are committed to driving the adoption of DeFi by addressing the core challenges that hinder its mainstream acceptance. Through CheasySwap, we aim to empower individuals and businesses to participate in an open, transparent, and equitable financial ecosystem.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                        <Box
+                            sx={{
+                                width: '100%',
+                                height: 0,
+                                paddingBottom: '56.25%', // 16:9 Aspect Ratio
+                                position: 'relative',
+                            }}
+                        >
+                            <iframe
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                                src="https://www.youtube.com/embed/M_fuXxRGx8k?si=fhBsSwPehHOUvWQA"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                title="CheasySwap Video"
+                            ></iframe>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Box>
             <Grid container spacing={2} justifyContent="center">
                 {features.map((feature, index) => (
                     <FeatureCard key={index} feature={feature} delay={index * 500} />

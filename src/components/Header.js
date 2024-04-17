@@ -35,10 +35,10 @@ export default function Header() {
                 },
             }}
         >
+            <HeaderButton name="About" />
             <HeaderButton name="Buy Cheasy" />
             <HeaderButton name="Roadmap" />
             <HeaderButton name="Tokenomics" />
-            <HeaderButton name="About" />
             <HeaderButton name="FAQs" />
             <HeaderButton name="Docs" />
             <w3m-button />
@@ -73,10 +73,10 @@ export default function Header() {
                     ) : (
                         <>
                             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', width: '50%' }}>
+                            <HeaderButton name="About" />
                                 <HeaderButton name="Buy Cheasy" />
                                 <HeaderButton name="Roadmap" />
                                 <HeaderButton name="Tokenomics" />
-                                <HeaderButton name="About" />
                                 <HeaderButton name="FAQs" />
                                 <HeaderButton name="Docs" />
                             </Box>

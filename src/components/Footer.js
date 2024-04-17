@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
 import { Box, Grid, Link, Typography, IconButton } from '@mui/material';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import XIcon from '@mui/icons-material/X';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import { orange } from '@mui/material/colors';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -40,8 +41,8 @@ const Footer = () => {
                 <Link href="/#about" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>About</Link>
                 <Link href="/#roadmap" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Roadmap</Link>
                 <Link href="/#faqs" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>FAQ</Link>
-                <Link href="/privacypolicy.docx" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Privacy Policy</Link>
-                <Link href="/terms.docx" sx={{ color: 'white', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Terms & Conditions</Link>
+                <Link href="/privacypolicy.pdf" target="_blank" rel="noopener noreferrer" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Privacy Policy</Link>
+                <Link href="/terms.pdf" target="_blank" rel="noopener noreferrer" sx={{ color: 'white', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Terms & Conditions</Link>
             </Box>
             <Box
                 sx={{
@@ -54,8 +55,9 @@ const Footer = () => {
                     support@cheasy.finance
                 </Link>
                 <Box>
-                    <IconButton href="#" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><TwitterIcon /></IconButton>
-                    <IconButton href="#" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><TelegramIcon /></IconButton>
+                    <IconButton href="https://twitter.com/CheasySwap" target="_blank" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><XIcon /></IconButton>
+                    <IconButton href="https://www.youtube.com/@CheasySwap" target="_blank" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><YouTubeIcon /></IconButton>
+                    <IconButton href="https://t.me/CheasySwap" target="_blank" sx={{ color: orange[500], '&:hover': { color: 'white' } }}><TelegramIcon /></IconButton>
                 </Box>
                 <Typography sx={{ mt: 1, color: 'white' }}>© 2024 CheasySwap. All Rights Reserved.</Typography>
             </Box>

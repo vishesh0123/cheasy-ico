@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from '@mui/material';
 
-
 export default function HeaderButton({ name }) {
     const buttonStyle = {
         color: 'orange',
@@ -15,12 +14,17 @@ export default function HeaderButton({ name }) {
     };
 
     let hrefValue = `/#${name.toLowerCase()}`;
+    let targetValue = undefined;
+    let relValue = undefined;
+
     if (name === 'Docs') {
-        hrefValue = 'https://docs.cheasy.finance/'
+        hrefValue = 'https://docs.cheasy.finance/';
+        targetValue = "_blank";
+        relValue = "noopener noreferrer";
     }
 
     return (
-        <Link sx={buttonStyle} href={hrefValue}>
+        <Link sx={buttonStyle} href={hrefValue} target={targetValue} rel={relValue}>
             {name}
         </Link>
     );
