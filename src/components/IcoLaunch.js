@@ -4,6 +4,8 @@ import { Box, Typography, Paper, Button, Snackbar } from '@mui/material';
 import { styled } from '@mui/system';
 import { orange } from '@mui/material/colors';
 import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 const CountdownSegment = styled(motion.div)({
@@ -22,7 +24,7 @@ const CountdownSegment = styled(motion.div)({
     textShadow: '0 2px 4px rgba(0,0,0,0.5)',
 });
 
-const CountdownTimer = ({ targetDate }) => {
+const CountdownTimer = ({ targetDate, mobile }) => {
     const calculateTimeLeft = () => {
         const difference = +new Date(targetDate) - +new Date();
         let timeLeft = {};
@@ -67,7 +69,7 @@ const CountdownTimer = ({ targetDate }) => {
             {Object.keys(timeLeft).length > 0 && Object.keys(timeLeft).map((interval, i) => (
                 <CountdownSegment key={i} variants={timeAnimation} initial="initial" animate="animate">
                     {timeLeft[interval] < 10 ? `0${timeLeft[interval]}` : timeLeft[interval]}
-                    <Typography component="span" sx={{ fontSize: 20, fontWeight: 'medium' }}>
+                    <Typography component="span" sx={{ fontSize: mobile ? 5 : 20, fontWeight: 'medium' }}>
                         {interval.toUpperCase()}
                     </Typography>
                 </CountdownSegment>
@@ -77,6 +79,8 @@ const CountdownTimer = ({ targetDate }) => {
 };
 
 const IcoLaunch = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const icoStartDate = new Date('2024-05-01T00:00:00');
     const [openSnackbar, setOpenSnackbar] = useState(false);
 
@@ -93,7 +97,7 @@ const IcoLaunch = () => {
             mx: 2,
             // border: `3px solid ${orange[500]}`,
             width: 'auto',
-            maxWidth: '100vh',
+            maxWidth: '100vw',
             borderRadius: '10px',
             // background: 'linear-gradient(145deg, #121212, #333333)', // Gradient background
         }}>
@@ -108,7 +112,7 @@ const IcoLaunch = () => {
                 <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 3, color: orange[500], textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                     PHASE 1 OF ICO WILL BE LIVE IN
                 </Typography>
-                <CountdownTimer targetDate={icoStartDate} />
+                <CountdownTimer targetDate={icoStartDate} mobile={isMobile} />
                 <Typography variant="subtitle1" sx={{ mt: 2, color: orange[500], fontWeight: 'bold', fontSize: 20 }}>
                     1 CHEASY = $0.05
                 </Typography>

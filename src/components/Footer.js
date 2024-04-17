@@ -36,7 +36,7 @@ const Footer = () => {
                 <img src={logoSrc} alt="Token Logo" style={{ width: '80px', marginRight: '12px' }} />
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>CheasySwap</Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: isMobile ? 'column' : 'row' }}>
                 <Link href="/#about" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>About</Link>
                 <Link href="/#roadmap" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Roadmap</Link>
                 <Link href="/#faqs" sx={{ color: 'white', mr: 3, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>FAQ</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'flex-end',
+                    alignItems: isMobile ? 'center' : 'flex-end',
                 }}
             >
                 <Link href="mailto:support@cheasy.finance" sx={{ color: 'white', mb: 2, '&:hover': { textDecoration: 'underline' } }}>

@@ -14,9 +14,10 @@ export default function Launch() {
         <>
             {isMobile ?
                 (<Box id="buy cheasy"
-                    display='flex'
-                    justifyContent='space-between'
-                    flexDirection='column'
+                    // display='flex'
+                    // justifyContent='space-between'
+                    // flexDirection='column'
+                    maxWidth='100vw'
                 >
                     <ICOPhases />
                     <IcoLaunch />

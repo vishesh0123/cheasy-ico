@@ -60,7 +60,7 @@ function FeatureCard({ feature, delay }) {
         <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 + delay }}>
             <Grid item xs={12} sm={6} md={3}>
                 <Card sx={{
-                    minWidth: 275,
+                    minWidth: 200,
                     minHeight: 200,
                     bgcolor: 'transparent',
                     color: 'text.primary',

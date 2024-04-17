@@ -28,10 +28,10 @@ export default function Header() {
             justifyContent='center'
             alignItems='center'
             onClick={handleDrawerToggle}
-            width='100vh'
+            width='100vw'
             sx={{
                 '& > *': { // This applies the style to every direct child of the Box component
-                    margin: 3, // You can change this value to the margin you want
+                    margin: 2, // You can change this value to the margin you want
                 },
             }}
         >
@@ -41,6 +41,7 @@ export default function Header() {
             <HeaderButton name="About" />
             <HeaderButton name="FAQs" />
             <HeaderButton name="Docs" />
+            <w3m-button />
         </Box>
     );
 
@@ -70,24 +71,27 @@ export default function Header() {
                             <MenuIcon />
                         </IconButton>
                     ) : (
-                        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', width: '50%' }}>
-                            <HeaderButton name="Buy Cheasy" />
-                            <HeaderButton name="Roadmap" />
-                            <HeaderButton name="Tokenomics" />
-                            <HeaderButton name="About" />
-                            <HeaderButton name="FAQs" />
-                            <HeaderButton name="Docs" />
-                        </Box>
+                        <>
+                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', width: '50%' }}>
+                                <HeaderButton name="Buy Cheasy" />
+                                <HeaderButton name="Roadmap" />
+                                <HeaderButton name="Tokenomics" />
+                                <HeaderButton name="About" />
+                                <HeaderButton name="FAQs" />
+                                <HeaderButton name="Docs" />
+                            </Box>
+                            <Box sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'right',
+                                justifyContent: 'flex-end',
+                                width: '30%',
+                            }}>
+                                <w3m-button />
+                            </Box>
+                        </>
                     )}
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'right',
-                        justifyContent: 'flex-end',
-                        width: '30%',
-                    }}>
-                        <w3m-button />
-                    </Box>
+
                 </Toolbar>
             </Container>
             {isMobile && (

@@ -7,7 +7,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { orange, green } from '@mui/material/colors';
+import { orange } from '@mui/material/colors';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 
@@ -55,7 +55,7 @@ export default function ICOPhases() {
             mx: 2,
             borderRadius: 2,
             py: 1,
-            width: '40%',
+            width: '40vw',
         }}>
             <Typography sx={{
                 color: orange[500],

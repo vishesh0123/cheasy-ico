@@ -76,6 +76,7 @@ const TokenInfoBox = styled(Box)(({ theme }) => ({
         transform: 'scale(1.05)'
     },
     height: 'auto', // Adjusted for content
+    maxWidth: '100vw'
 }));
 
 const Tokenomics = () => {
@@ -102,9 +103,11 @@ const Tokenomics = () => {
             <Box display="flex"
                 flexDirection={isMobile ? 'column' : 'row'}
                 justifyContent="space-around"
-                sx={{ width: '100%', flexWrap: 'wrap' }}>
+                sx={{ width: '100%', flexWrap: isMobile ? 'nowrap' : 'wrap' }}
+                maxWidth="100vw"
+            >
                 <Box sx={{
-                    width: '40%',
+                    width: isMobile ? '55vw' : '40%',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
@@ -116,7 +119,7 @@ const Tokenomics = () => {
                         TOKEN INFORMATION
                     </Typography>
                     {data.map((item, index) => (
-                        <Tooltip key={index} title={item.desc || ''} arrow placement="right" >
+                        <Tooltip key={index} title={item.desc || ''} arrow placement={isMobile ? "top" : "right"} >
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -149,7 +152,8 @@ const Tokenomics = () => {
                                 beta: 0
                             },
                             backgroundColor: '#121212',
-                            height: 200, // Set fixed height for consistency
+                            height: 300,
+                             // Set fixed height for consistency
                         },
                     } : chartOptions}
                 />
