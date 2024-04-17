@@ -105,7 +105,7 @@ function InfoSection() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={7}>
                         <Typography>
-                            CheasySwap's mission is to revolutionize the decentralized finance landscape by innovating and simplifying DeFi transactions, making them more accessible, efficient, and secure for all users, regardless of their technical expertise. We are committed to driving the adoption of DeFi by addressing the core challenges that hinder its mainstream acceptance. Through CheasySwap, we aim to empower individuals and businesses to participate in an open, transparent, and equitable financial ecosystem.
+                            CheasySwap&apos;s mission is to revolutionize the decentralized finance landscape by innovating and simplifying DeFi transactions, making them more accessible, efficient, and secure for all users, regardless of their technical expertise. We are committed to driving the adoption of DeFi by addressing the core challenges that hinder its mainstream acceptance. Through CheasySwap, we aim to empower individuals and businesses to participate in an open, transparent, and equitable financial ecosystem.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={5}>
